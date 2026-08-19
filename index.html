@@ -1,67 +1,197 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elo Tech</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+    /* ======= CONFIGURAÇÃO GERAL ======= */
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: #0a0a0a;
+      color: #e2e2e2;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 15px 60px 15px;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    /* ======= CABEÇALHO ======= */
+    header {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 40px 0 20px 0;
+      z-index: 100;
+    }
+
+    .logo {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    .logo-img {
+      width: 100%;
+      max-width: 220px;
+      height: auto;
+      object-fit: contain;
+      border-radius: 12px;
+    }
+
+    header h1 {
+      font-size: 2.2rem;
+      color: #ffffff;
+      letter-spacing: 2px;
+      margin-top: 15px;
+    }
+
+    .highlight {
+      color: #00c8ff;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      gap: 25px;
+      margin-top: 25px;
+    }
+
+    /* ======= CARTÕES DE CONTEÚDO ======= */
+    .card {
+      width: 100%;
+      background: #121212;
+      border: 1px solid #222;
+      border-radius: 16px;
+      padding: 30px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .card h2 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
+      border-left: 4px solid #00c8ff;
+      padding-left: 12px;
+    }
+
+    .card p {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      color: #cccccc;
+      margin-bottom: 12px;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin-top: 20px;
+    }
+
+    .team-member {
+      background: #1a1a1a;
+      padding: 15px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      border: 1px solid #333;
+    }
+
+    .team-member i {
+      color: #00c8ff;
+      font-size: 1.2rem;
+      margin-right: 12px;
+    }
+
+    .team-member span {
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+    </style>
 </head>
 <body>
 
-<header>
-  <div class="logo">
-    <img src="https://raw.githubusercontent.com/davizinhofchiacchio-cyber/projeto-aletheia/main/logo.jpeg" alt="Logo Elo Tech" class="logo-img">
-  </div>
-  <h1>ELO TECH</h1>
-</header>
+    <header>
+      <div class="logo">
+        <img src="https://raw.githubusercontent.com/davizinhofchiacchio-cyber/projeto-aletheia/main/logo.jpeg" alt="Logo Elo Tech" class="logo-img">
+      </div>
+      <h1>ELO TECH</h1>
+    </header>
 
-<div class="container">
-    <!-- Seção Equipe -->
-    <section class="card">
-        <h2>Nossa <span class="highlight">Equipe</span></h2>
-        <div class="team-grid">
-            <div class="team-member"><span>David</span></div>
-            <div class="team-member"><span>Gustavo</span></div>
-            <div class="team-member"><span>Alberto</span></div>
-            <div class="team-member"><span>Caio</span></div>
-        </div>
-    </section>
+    <div class="container">
+        <section class="card">
+            <h2>Nossa <span class="highlight">Equipe</span></h2>
+            <p>Conheça os integrantes responsáveis pela criação e desenvolvimento da solução:</p>
+            <div class="team-grid">
+                <div class="team-member"><i class="fa-solid fa-user-check"></i> <span>David</span></div>
+                <div class="team-member"><i class="fa-solid fa-user"></i> <span>Gustavo</span></div>
+                <div class="team-member"><i class="fa-solid fa-user"></i> <span>Alberto</span></div>
+                <div class="team-member"><i class="fa-solid fa-user"></i> <span>Caio</span></div>
+            </div>
+        </section>
 
-    <!-- Seção Sobre -->
-    <section class="card">
-        <h2>Sobre a <span class="highlight">Elo Tech</span></h2>
-        <p>Somos a <strong>Elo Tech</strong>, focada em segurança digital e verificação de informações.</p>
-    </section>
+        <section class="card">
+            <h2>Sobre a <span class="highlight">Elo Tech</span></h2>
+            <p>Somos a <strong>Elo Tech</strong>, uma equipe focada no desenvolvimento de soluções tecnológicas inteligentes baseadas em Inteligência Artificial.</p>
+            <p>Nosso objetivo é otimizar processos complexos, tornando a verificação de informações mais rápida, acessível e precisa para empresas e veículos de imprensa.</p>
+        </section>
 
-    <!-- Seção O Problema -->
-    <section class="card">
-        <h2>O <span class="highlight">Problema</span></h2>
-        <p>A disseminação acelerada de informações falsas e desinformação na internet compromete a credibilidade de veículos de comunicação e coloca em risco a confiança do público na sociedade digital.</p>
-    </section>
+        <section class="card">
+            <h2>O <span class="highlight">Problema</span></h2>
+            <p>Grandes veículos de comunicação, telejornais e portais de notícia — como o <strong>SBT, CNN, Jornal Nacional</strong> entre outros — enfrentam constantemente o uso indevido de suas marcas em golpes e desinformação.</p>
+            <p>Criminosos utilizam trechos de reportagens, fotos e deepfakes para simular notícias falsas, gerando pânico na população e aplicando fraudes financeiras.</p>
+        </section>
 
-    <!-- Seção A Solução -->
-    <section class="card">
-        <h2>A <span class="highlight">Solução</span></h2>
-        <p>Desenvolvemos uma estrutura focada no combate à desinformação, utilizando tecnologia para realizar checagens ágeis e garantir a integridade dos conteúdos antes que sejam veiculados.</p>
-    </section>
+        <section class="card">
+            <h2>A <span class="highlight">Solução</span></h2>
+            <p>Desenvolvemos um ecossistema de Inteligência Artificial capaz de ler, escanear e analisar conteúdos suspeitos em tempo real.</p>
+            <p>O sistema cruza dados de texto, imagem e vídeo para identificar manipulações e emitir alertas imediatos de fraude, evitando a propagação da mentira antes que ela gere impactos graves.</p>
+        </section>
 
-    <!-- Seção ODS -->
-    <section class="card">
-        <h2>Impacto e <span class="highlight">ODS</span></h2>
-        <p>Nosso projeto está alinhado aos Objetivos de Desenvolvimento Sustentável da ONU:</p>
-        <ul>
-            <li><strong>ODS 9:</strong> Indústria, Inovação e Infraestrutura — promovendo o uso inovador da tecnologia.</li>
-            <li><strong>ODS 16:</strong> Paz, Justiça e Instituições Eficazes — fortalecendo o acesso à informação precisa e transparente.</li>
-        </ul>
-    </section>
+        <section class="card">
+            <h2>ODS 16: <span class="highlight">Paz, Justiça e Instituições Eficazes</span></h2>
+            <p>Criminosos utilizam ferramentas avançadas para manipular a opinião pública e aplicar golpes digitais.</p>
+            <p>Nossa tecnologia atua diretamente no combate ao crime cibernético, impedindo que conteúdos fraudulentos extrapolem limites e garantindo a integridade da informação legítima.</p>
+        </section>
 
-    <!-- Rodapé de Agradecimento -->
-    <section class="card" style="text-align: center;">
-        <h2>Obrigado pela <span class="highlight">Visita!</span></h2>
-        <p>Acompanhe a Elo Tech e faça parte do futuro da informação segura.</p>
-    </section>
-</div>
+        <section class="card">
+            <h2>ODS 4: <span class="highlight">Educação de Qualidade</span></h2>
+            <p>A educação vai muito além da sala de aula: ela abrange o letramento midiático e o acesso diário à verdade.</p>
+            <p>Ao filtrar manipulações, garantimos que a sociedade permaneça bem informada e consciente diante do ecossistema digital.</p>
+        </section>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+        <section class="card">
+            <h2>ODS 10: <span class="highlight">Redução das Desigualdades</span></h2>
+            <p>Grandes portais e telejornais possuem um público diversificado, incluindo idosos e pessoas com menor letramento digital que são mais vulneráveis a golpes e desinformação.</p>
+            <p>Nossa solução protege essa parcela da população, democratizando o acesso a checagens de fatos seguras e simplificadas.</p>
+        </section>
+
+        <section class="card" style="text-align: center;">
+            <h2 style="border: none; padding: 0; font-size: 2.2rem; margin-bottom: 15px;">Obrigado pela <span class="highlight">visita</span>.</h2>
+            <p><strong>Elo Tech</strong> — Conectando tecnologia, verdade e segurança.</p>
+        </section>
+    </div>
+
+    <!-- Ícones do FontAwesome -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+
 </body>
 </html>
