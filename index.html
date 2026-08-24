@@ -99,31 +99,56 @@
       margin-bottom: 12px;
     }
 
+    /* ======= SEÇÃO DE EQUIPE (ATUALIZADA) ======= */
     .team-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
       margin-top: 20px;
     }
 
     .team-member {
       background: #1a1a1a;
-      padding: 15px;
-      border-radius: 8px;
+      padding: 20px;
+      border-radius: 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      border: 1px solid #333;
+    }
+
+    .team-header {
       display: flex;
       align-items: center;
-      border: 1px solid #333;
+      gap: 10px;
+      margin-bottom: 4px;
     }
 
     .team-member i {
       color: #00c8ff;
       font-size: 1.2rem;
-      margin-right: 12px;
     }
 
-    .team-member span {
-      font-size: 1.1rem;
+    .team-member .name {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #ffffff;
+    }
+
+    .team-member .role {
+      font-size: 0.85rem;
+      color: #00c8ff;
       font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+
+    .team-member p.desc {
+      font-size: 0.95rem;
+      color: #aaaaaa;
+      line-height: 1.4;
+      margin: 0;
     }
     </style>
 </head>
@@ -137,68 +162,104 @@
     </header>
 
     <div class="container">
-        <!-- Bloco 1 -->
+        <!-- Equipe -->
         <section class="card">
             <h2>Nossa <span class="highlight">Equipe</span></h2>
             <p>Conheça os integrantes responsáveis pela criação e desenvolvimento da solução:</p>
             <div class="team-grid">
-                <div class="team-member"><i class="fa-solid fa-user-check"></i> <span>David</span></div>
-                <div class="team-member"><i class="fa-solid fa-user"></i> <span>Gustavo</span></div>
-                <div class="team-member"><i class="fa-solid fa-user"></i> <span>Alberto</span></div>
-                <div class="team-member"><i class="fa-solid fa-user"></i> <span>Caio</span></div>
+                <!-- David -->
+                <div class="team-member">
+                    <div class="team-header">
+                        <i class="fa-solid fa-user-check"></i>
+                        <span class="name">David</span>
+                    </div>
+                    <span class="role">Gerente</span>
+                    <p class="desc">Cuida de fazer a equipe funcionar e responde pela equipe.</p>
+                </div>
+
+                <!-- Alberto -->
+                <div class="team-member">
+                    <div class="team-header">
+                        <i class="fa-solid fa-lightbulb"></i>
+                        <span class="name">Alberto</span>
+                    </div>
+                    <span class="role">Diretor Criativo</span>
+                    <p class="desc">Dá as ideias de como poderá ser o produto.</p>
+                </div>
+
+                <!-- Gustavo -->
+                <div class="team-member">
+                    <div class="team-header">
+                        <i class="fa-solid fa-code"></i>
+                        <span class="name">Gustavo</span>
+                    </div>
+                    <span class="role">Programador</span>
+                    <p class="desc">Pega a ideia do diretor criativo e bota em prática.</p>
+                </div>
+
+                <!-- Caio -->
+                <div class="team-member">
+                    <div class="team-header">
+                        <i class="fa-solid fa-code"></i>
+                        <span class="name">Caio</span>
+                    </div>
+                    <span class="role">Programador</span>
+                    <p class="desc">Pega a ideia do diretor criativo e bota em prática.</p>
+                </div>
             </div>
         </section>
 
-        <!-- Bloco 2 -->
+        <!-- Sobre -->
         <section class="card">
             <h2>Sobre a <span class="highlight">Elo Tech</span></h2>
             <p>Somos a <strong>Elo Tech</strong>, uma equipe focada no desenvolvimento de soluções tecnológicas inteligentes baseadas em Inteligência Artificial.</p>
             <p>Nosso objetivo é otimizar processos complexos, tornando a verificação de informações mais rápida, acessível e precisa para empresas e veículos de imprensa.</p>
         </section>
 
-        <!-- Bloco 3 -->
+        <!-- O Problema -->
         <section class="card">
             <h2>O <span class="highlight">Problema</span></h2>
             <p>Grandes veículos de comunicação, telejornais e portais de notícia — como o <strong>SBT, CNN, Jornal Nacional</strong> entre outros — enfrentam constantemente o uso indevido de suas marcas em golpes e desinformação.</p>
             <p>Criminosos utilizam trechos de reportagens, fotos e deepfakes para simular notícias falsas, gerando pânico na população e aplicando fraudes financeiras.</p>
         </section>
 
-        <!-- Bloco 4 (ATUALIZADO PARA O PROJETO ALETHEIA) -->
+        <!-- A Solução (Projeto Aletheia) -->
         <section class="card">
             <h2>A <span class="highlight">Solução: Projeto Aletheia</span></h2>
-            <p>Para resolver esse desafio, desenvolvemos o <strong>Projeto Aletheia</strong> — uma Inteligência Artificial especializada na análise e checagem de conteúdos em tempo real.</p>
-            <p>O <strong>Projeto Aletheia</strong> lê e examina textos, manchetes e trechos suspeitos, cruzando dados para identificar adulterações, boatos e deepfakes. Em vez de uma ideia teórica, trata-se de uma ferramenta prática pronta para validar a veracidade das informações antes que a mentira se espalhe.</p>
+            <p>Para combater o avanço da desinformação de forma prática e imediata, desenvolvemos o <strong>Projeto Aletheia</strong> — um ecossistema de Inteligência Artificial focado na análise, validação e checagem de conteúdos em tempo real.</p>
+            <p>O <strong>Projeto Aletheia</strong> analisa textos, manchetes e matérias suspeitas utilizando algoritmos avançados para identificar padrões de linguagem enganosa, inconsistências contextuais, sensacionalismo e indícios de manipulação ou deepfakes. Ao cruzar informações com dados confiáveis e checados, o sistema gera um diagnóstico rápido e preciso sobre a veracidade do conteúdo.</p>
+            <p>Mais do que uma ideia teórica, o Aletheia é uma solução prática pronta para atuar como um escudo digital, permitindo validar informações antes que fake news e golpes se espalhem e causem danos.</p>
         </section>
 
-        <!-- Bloco 5 -->
+        <!-- ODS 16 -->
         <section class="card">
             <h2>ODS 16: <span class="highlight">Paz, Justiça e Instituições Eficazes</span></h2>
             <p>Criminosos utilizam ferramentas avançadas para manipular a opinião pública e aplicar golpes digitais.</p>
             <p>Nossa tecnologia atua diretamente no combate ao crime cibernético, impedindo que conteúdos fraudulentos extrapolem limites e garantindo a integridade da informação legítima.</p>
         </section>
 
-        <!-- Bloco 6 -->
+        <!-- ODS 4 -->
         <section class="card">
             <h2>ODS 4: <span class="highlight">Educação de Qualidade</span></h2>
             <p>A educação vai muito além da sala de aula: ela abrange o letramento midiático e o acesso diário à verdade.</p>
             <p>Ao filtrar manipulações, garantimos que a sociedade permaneça bem informada e consciente diante do ecossistema digital.</p>
         </section>
 
-        <!-- Bloco 7 -->
+        <!-- ODS 10 -->
         <section class="card">
             <h2>ODS 10: <span class="highlight">Redução das Desigualdades</span></h2>
             <p>Grandes portais e telejornais possuem um público diversificado, incluindo idosos e pessoas com menor letramento digital que são mais vulneráveis a golpes e desinformação.</p>
             <p>Nossa solução protege essa parcela da população, democratizando o acesso a checagens de fatos seguras e simplificadas.</p>
         </section>
 
-        <!-- Bloco 8 -->
+        <!-- Encerramento -->
         <section class="card" style="text-align: center;">
             <h2 style="border: none; padding: 0; font-size: 2.2rem; margin-bottom: 15px;">Obrigado pela <span class="highlight">visita</span>.</h2>
             <p><strong>Elo Tech</strong> — Conectando tecnologia, verdade e segurança.</p>
         </section>
     </div>
 
-    <!-- Ícones do FontAwesome -->
+    <!-- Ícones FontAwesome -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
 
 </body>
