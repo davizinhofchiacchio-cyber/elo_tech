@@ -99,7 +99,7 @@
       margin-bottom: 12px;
     }
 
-    /* ======= SEÇÃO DE EQUIPE (ATUALIZADA) ======= */
+    /* ======= EQUIPE ======= */
     .team-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -149,6 +149,44 @@
       color: #aaaaaa;
       line-height: 1.4;
       margin: 0;
+    }
+
+    /* ======= BENEFÍCIOS ======= */
+    .benefits-list {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 15px;
+    }
+
+    .benefit-item {
+      background: #1a1a1a;
+      padding: 18px 20px;
+      border-radius: 10px;
+      border-left: 3px solid #00c8ff;
+      display: flex;
+      align-items: flex-start;
+      gap: 15px;
+    }
+
+    .benefit-item i {
+      color: #00c8ff;
+      font-size: 1.3rem;
+      margin-top: 3px;
+    }
+
+    .benefit-content strong {
+      color: #ffffff;
+      font-size: 1.05rem;
+      display: block;
+      margin-bottom: 4px;
+    }
+
+    .benefit-content p {
+      font-size: 0.98rem;
+      color: #aaaaaa;
+      margin: 0;
+      line-height: 1.4;
     }
     </style>
 </head>
@@ -229,6 +267,53 @@
             <p>Para combater o avanço da desinformação de forma prática e imediata, desenvolvemos o <strong>Projeto Aletheia</strong> — um ecossistema de Inteligência Artificial focado na análise, validação e checagem de conteúdos em tempo real.</p>
             <p>O <strong>Projeto Aletheia</strong> analisa textos, manchetes e matérias suspeitas utilizando algoritmos avançados para identificar padrões de linguagem enganosa, inconsistências contextuais, sensacionalismo e indícios de manipulação ou deepfakes. Ao cruzar informações com dados confiáveis e checados, o sistema gera um diagnóstico rápido e preciso sobre a veracidade do conteúdo.</p>
             <p>Mais do que uma ideia teórica, o Aletheia é uma solução prática pronta para atuar como um escudo digital, permitindo validar informações antes que fake news e golpes se espalhem e causem danos.</p>
+        </section>
+
+        <!-- Benefícios -->
+        <section class="card">
+            <h2>Principais <span class="highlight">Benefícios</span></h2>
+            <p>Confira as vantagens práticas que o Projeto Aletheia oferece para os veículos de comunicação e para a sociedade:</p>
+            <div class="benefits-list">
+                <div class="benefit-item">
+                    <i class="fa-solid fa-shield-halved"></i>
+                    <div class="benefit-content">
+                        <strong>1. Proteção de Marca e Reputação</strong>
+                        <p>Impede que a imagem e a credibilidade de grandes veículos de imprensa sejam usadas em fraudes e golpes virtuais.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <i class="fa-solid fa-bolt"></i>
+                    <div class="benefit-content">
+                        <strong>2. Resposta Rápida e em Tempo Real</strong>
+                        <p>Detecta e analisa conteúdos suspeitos com agilidade, cortando o alcance da desinformação antes que ela viralize.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <i class="fa-solid fa-user-shield"></i>
+                    <div class="benefit-content">
+                        <strong>3. Escudo de Segurança para a População</strong>
+                        <p>Protege idosos e pessoas com menor letramento digital contra golpes financeiros e notícias falsas perigosas.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <i class="fa-solid fa-sliders"></i>
+                    <div class="benefit-content">
+                        <strong>4. Praticidade Operacional</strong>
+                        <p>Oferece uma ferramenta simples e funcional para ser integrada diretamente à rotina de checagem dos jornalistas.</p>
+                    </div>
+                </div>
+
+                <div class="benefit-item">
+                    <i class="fa-solid fa-earth-americas"></i>
+                    <div class="benefit-content">
+                        <strong>5. Compromisso Social</strong>
+                        <p>Além disso, alinhamos nossa solução às ODS 4, 10 e 16 para gerar um impacto positivo e ético na sociedade <em>(para mais informações, confira os detalhes de cada ODS logo abaixo)</em>.</p>
+                    </div>
+                </div>
+            </div>
         </section>
 
         <!-- ODS 16 -->
