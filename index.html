@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elo Tech</title>
+    <!-- Ícones FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
     <style>
     /* ======= CONFIGURAÇÃO GERAL ======= */
     body {
@@ -66,13 +69,52 @@
       color: #00c8ff;
     }
 
+    /* ======= MENU DE NAVEGAÇÃO ======= */
+    .nav-bar {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 25px;
+      flex-wrap: wrap;
+      width: 100%;
+      max-width: 800px;
+    }
+
+    .nav-btn {
+      background: #1a1a1a;
+      border: 1px solid #333;
+      color: #aaaaaa;
+      padding: 12px 20px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: 0.3s;
+      font-size: 0.95rem;
+      font-family: inherit;
+    }
+
+    .nav-btn:hover, .nav-btn.ativo {
+      background: #00c8ff;
+      color: #0a0a0a;
+      border-color: #00c8ff;
+      box-shadow: 0 0 15px rgba(0, 200, 255, 0.3);
+    }
+
+    /* ======= CONTROLE DE PÁGINAS ======= */
     .container {
       width: 100%;
       max-width: 800px;
-      display: flex;
+    }
+
+    .pagina {
+      display: none;
+      width: 100%;
       flex-direction: column;
       gap: 25px;
-      margin-top: 25px;
+    }
+
+    .pagina.ativa {
+      display: flex;
     }
 
     /* ======= CARTÕES DE CONTEÚDO ======= */
@@ -90,6 +132,7 @@
       margin-bottom: 15px;
       border-left: 4px solid #00c8ff;
       padding-left: 12px;
+      margin-top: 0;
     }
 
     .card p {
@@ -188,6 +231,25 @@
       margin: 0;
       line-height: 1.4;
     }
+
+    /* ======= ODS LAYOUT ======= */
+    .ods-content {
+      display: flex;
+      align-items: center;
+      gap: 25px;
+    }
+    .ods-img {
+      width: 120px;
+      border-radius: 12px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+
+    @media (max-width: 600px) {
+      .ods-content {
+        flex-direction: column;
+        text-align: center;
+      }
+    }
     </style>
 </head>
 <body>
@@ -199,163 +261,185 @@
       <h1>ELO TECH</h1>
     </header>
 
-    <div class="container">
-        <!-- Equipe -->
-        <section class="card">
-            <h2>Nossa <span class="highlight">Equipe</span></h2>
-            <p>Conheça os integrantes responsáveis pela criação e desenvolvimento da solução:</p>
-            <div class="team-grid">
-                <!-- David -->
-                <div class="team-member">
-                    <div class="team-header">
-                        <i class="fa-solid fa-user-check"></i>
-                        <span class="name">David</span>
-                    </div>
-                    <span class="role">Gerente</span>
-                    <p class="desc">Cuida de fazer a equipe funcionar e responde pela equipe.</p>
-                </div>
-
-                <!-- Mariah -->
-                <div class="team-member">
-                    <div class="team-header">
-                        <i class="fa-solid fa-clipboard-check"></i>
-                        <span class="name">Mariah</span>
-                    </div>
-                    <span class="role">Supervisora</span>
-                    <p class="desc">Supervisiona a equipe e projetos, vê se está em ordem pro gerente aprovar.</p>
-                </div>
-
-                <!-- Alberto -->
-                <div class="team-member">
-                    <div class="team-header">
-                        <i class="fa-solid fa-lightbulb"></i>
-                        <span class="name">Alberto</span>
-                    </div>
-                    <span class="role">Diretor Criativo</span>
-                    <p class="desc">Dá as ideias de como poderá ser o produto.</p>
-                </div>
-
-                <!-- Gustavo -->
-                <div class="team-member">
-                    <div class="team-header">
-                        <i class="fa-solid fa-code"></i>
-                        <span class="name">Gustavo</span>
-                    </div>
-                    <span class="role">Programador</span>
-                    <p class="desc">Pega a ideia do diretor criativo e bota em prática.</p>
-                </div>
-
-                <!-- Caio -->
-                <div class="team-member">
-                    <div class="team-header">
-                        <i class="fa-solid fa-code"></i>
-                        <span class="name">Caio</span>
-                    </div>
-                    <span class="role">Programador</span>
-                    <p class="desc">Pega a ideia do diretor criativo e bota em prática.</p>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sobre -->
-        <section class="card">
-            <h2>Sobre a <span class="highlight">Elo Tech</span></h2>
-            <p>Somos a <strong>Elo Tech</strong>, uma equipe focada no desenvolvimento de soluções tecnológicas inteligentes baseadas em Inteligência Artificial.</p>
-            <p>Nosso objetivo é otimizar processos complexos, tornando a verificação de informações mais rápida, acessível e precisa para empresas e veículos de imprensa.</p>
-        </section>
-
-        <!-- O Problema -->
-        <section class="card">
-            <h2>O <span class="highlight">Problema</span></h2>
-            <p>Grandes veículos de comunicação, telejornais e portais de notícia — como o <strong>SBT, CNN, Jornal Nacional</strong> entre outros — enfrentam constantemente o uso indevido de suas marcas em golpes e desinformação.</p>
-            <p>Criminosos utilizam trechos de reportagens, fotos e deepfakes para simular notícias falsas, gerando pânico na população e aplicando fraudes financeiras.</p>
-        </section>
-
-        <!-- A Solução (Projeto Aletheia) -->
-        <section class="card">
-            <h2>A <span class="highlight">Solução: Projeto Aletheia</span></h2>
-            <p>Para combater o avanço da desinformação de forma prática e imediata, desenvolvemos o <strong>Projeto Aletheia</strong> — um ecossistema de Inteligência Artificial focado na análise, validação e checagem de conteúdos em tempo real.</p>
-            <p>O <strong>Projeto Aletheia</strong> analisa textos, manchetes e matérias suspeitas utilizando algoritmos avançados para identificar padrões de linguagem enganosa, inconsistências contextuais, sensacionalismo e indícios de manipulação ou deepfakes. Ao cruzar informações com dados confiáveis e checados, o sistema gera um diagnóstico rápido e preciso sobre a veracidade do conteúdo.</p>
-            <p>Mais do que uma ideia teórica, o Aletheia é uma solução prática pronta para atuar como um escudo digital, permitindo validar informações antes que fake news e golpes se espalhem e causem danos.</p>
-        </section>
-
-        <!-- Benefícios -->
-        <section class="card">
-            <h2>Principais <span class="highlight">Benefícios</span></h2>
-            <p>Confira as vantagens práticas que o Projeto Aletheia oferece para os veículos de comunicação e para a sociedade:</p>
-            <div class="benefits-list">
-                <div class="benefit-item">
-                    <i class="fa-solid fa-shield-halved"></i>
-                    <div class="benefit-content">
-                        <strong>1. Proteção de Marca e Reputação</strong>
-                        <p>Impede que a imagem e a credibilidade de grandes veículos de imprensa sejam usadas em fraudes e golpes virtuais.</p>
-                    </div>
-                </div>
-
-                <div class="benefit-item">
-                    <i class="fa-solid fa-bolt"></i>
-                    <div class="benefit-content">
-                        <strong>2. Resposta Rápida e em Tempo Real</strong>
-                        <p>Detecta e analisa conteúdos suspeitos com agilidade, cortando o alcance da desinformação antes que ela viralize.</p>
-                    </div>
-                </div>
-
-                <div class="benefit-item">
-                    <i class="fa-solid fa-user-shield"></i>
-                    <div class="benefit-content">
-                        <strong>3. Escudo de Segurança para a População</strong>
-                        <p>Protege idosos e pessoas com menor letramento digital contra golpes financeiros e notícias falsas perigosas.</p>
-                    </div>
-                </div>
-
-                <div class="benefit-item">
-                    <i class="fa-solid fa-sliders"></i>
-                    <div class="benefit-content">
-                        <strong>4. Praticidade Operacional</strong>
-                        <p>Oferece uma ferramenta simples e funcional para ser integrada diretamente à rotina de checagem dos jornalistas.</p>
-                    </div>
-                </div>
-
-                <div class="benefit-item">
-                    <i class="fa-solid fa-earth-americas"></i>
-                    <div class="benefit-content">
-                        <strong>5. Compromisso Social</strong>
-                        <p>Além disso, alinhamos nossa solução às ODS 4, 10 e 16 para gerar um impacto positivo e ético na sociedade <em>(para mais informações, confira os detalhes de cada ODS logo abaixo)</em>.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ODS 16 -->
-        <section class="card">
-            <h2>ODS 16: <span class="highlight">Paz, Justiça e Instituições Eficazes</span></h2>
-            <p>Criminosos utilizam ferramentas avançadas para manipular a opinião pública e aplicar golpes digitais.</p>
-            <p>Nossa tecnologia atua diretamente no combate ao crime cibernético, impedindo que conteúdos fraudulentos extrapolem limites e garantindo a integridade da informação legítima.</p>
-        </section>
-
-        <!-- ODS 4 -->
-        <section class="card">
-            <h2>ODS 4: <span class="highlight">Educação de Qualidade</span></h2>
-            <p>A educação vai muito além da sala de aula: ela abrange o letramento midiático e o acesso diário à verdade.</p>
-            <p>Ao filtrar manipulações, garantimos que a sociedade permaneça bem informada e consciente diante do ecossistema digital.</p>
-        </section>
-
-        <!-- ODS 10 -->
-        <section class="card">
-            <h2>ODS 10: <span class="highlight">Redução das Desigualdades</span></h2>
-            <p>Grandes portais e telejornais possuem um público diversificado, incluindo idosos e pessoas com menor letramento digital que são mais vulneráveis a golpes e desinformação.</p>
-            <p>Nossa solução protege essa parcela da população, democratizando o acesso a checagens de fatos seguras e simplificadas.</p>
-        </section>
-
-        <!-- Encerramento -->
-        <section class="card" style="text-align: center;">
-            <h2 style="border: none; padding: 0; font-size: 2.2rem; margin-bottom: 15px;">Obrigado pela <span class="highlight">visita</span>.</h2>
-            <p><strong>Elo Tech</strong> — Conectando tecnologia, verdade e segurança.</p>
-        </section>
+    <!-- MENU DE BOTÕES -->
+    <div class="nav-bar">
+        <button class="nav-btn ativo" onclick="mudarPagina('inicial', event)">Início & Empresa</button>
+        <button class="nav-btn" onclick="mudarPagina('problema', event)">O Problema</button>
+        <button class="nav-btn" onclick="mudarPagina('produto', event)">Nosso Produto</button>
+        <button class="nav-btn" onclick="mudarPagina('beneficios', event)">Benefícios</button>
+        <button class="nav-btn" onclick="mudarPagina('ods', event)">Impacto (ODS)</button>
     </div>
 
-    <!-- Ícones FontAwesome -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/js/all.min.js"></script>
+    <div class="container">
+
+        <!-- ================= PÁGINA 1: INÍCIO E EMPRESA ================= -->
+        <div id="inicial" class="pagina ativa">
+            <!-- Equipe em 1º Lugar -->
+            <section class="card">
+                <h2>Nossa <span class="highlight">Equipe</span></h2>
+                <p>Conheça os integrantes responsáveis pela criação e desenvolvimento da solução:</p>
+                <div class="team-grid">
+                    <div class="team-member">
+                        <div class="team-header"><i class="fa-solid fa-user-check"></i><span class="name">David</span></div>
+                        <span class="role">Gerente</span>
+                        <p class="desc">Cuida de fazer a equipe funcionar e responde pela equipe.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-header"><i class="fa-solid fa-clipboard-check"></i><span class="name">Mariah</span></div>
+                        <span class="role">Supervisora</span>
+                        <p class="desc">Supervisiona a equipe e projetos, vê se está em ordem pro gerente aprovar.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-header"><i class="fa-solid fa-lightbulb"></i><span class="name">Alberto</span></div>
+                        <span class="role">Diretor Criativo</span>
+                        <p class="desc">Dá as ideias de como poderá ser o produto.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-header"><i class="fa-solid fa-code"></i><span class="name">Gustavo</span></div>
+                        <span class="role">Programador</span>
+                        <p class="desc">Pega a ideia do diretor criativo e bota em prática.</p>
+                    </div>
+                    <div class="team-member">
+                        <div class="team-header"><i class="fa-solid fa-code"></i><span class="name">Caio</span></div>
+                        <span class="role">Programador</span>
+                        <p class="desc">Pega a ideia do diretor criativo e bota em prática.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sobre a Elo Tech em 2º Lugar -->
+            <section class="card">
+                <h2>Sobre a <span class="highlight">Elo Tech</span></h2>
+                <p>Nós somos a <strong>Elo Tech</strong>, uma empresa com o foco em tecnologia e um objetivo: facilitar sua vida, como diz nosso slogan <em>"Um caminho mais fácil pra você"</em>.</p>
+                <p>Nós alcançamos isso com o uso da tecnologia, criando diversos produtos para diferentes públicos.</p>
+                <p>Nesse projeto, nosso objetivo principal é facilitar e automatizar a verificação de informação.</p>
+            </section>
+        </div>
+
+        <!-- ================= PÁGINA 2: O PROBLEMA ================= -->
+        <div id="problema" class="pagina">
+            <section class="card">
+                <h2>O <span class="highlight">Problema</span></h2>
+                <p>Grandes veículos de comunicação, telejornais e portais de notícia — como o <strong>SBT, CNN, Jornal Nacional</strong> entre outros — enfrentam constantemente o uso indevido de suas marcas em golpes e desinformação.</p>
+                <p>Criminosos utilizam trechos de reportagens, fotos e deepfakes para simular notícias falsas, gerando pânico na população e aplicando fraudes financeiras.</p>
+            </section>
+        </div>
+
+        <!-- ================= PÁGINA 3: O PRODUTO ================= -->
+        <div id="produto" class="pagina">
+            <section class="card">
+                <h2>A <span class="highlight">Solução: Projeto Aletheia</span></h2>
+                <p>Para combater o avanço da desinformação de forma prática e imediata, desenvolvemos o <strong>Projeto Aletheia</strong> — um ecossistema de Inteligência Artificial focado na análise, validação e checagem de conteúdos em tempo real.</p>
+                <p>O <strong>Projeto Aletheia</strong> analisa textos, manchetes e matérias suspeitas utilizando algoritmos avançados para identificar padrões de linguagem enganosa, inconsistências contextuais, sensacionalismo e indícios de manipulação ou deepfakes. Ao cruzar informações com dados confiáveis e checados, o sistema gera um diagnóstico rápido e preciso sobre a veracidade do conteúdo.</p>
+                <p>Mais do que uma ideia teórica, o Aletheia é uma solução prática pronta para atuar como um escudo digital, permitindo validar informações antes que fake news e golpes se espalhem e causem danos.</p>
+            </section>
+        </div>
+
+        <!-- ================= PÁGINA 4: BENEFÍCIOS ================= -->
+        <div id="beneficios" class="pagina">
+            <section class="card">
+                <h2>Principais <span class="highlight">Benefícios</span></h2>
+                <p>Confira as vantagens práticas que o Projeto Aletheia oferece para os veículos de comunicação e para a sociedade:</p>
+                <div class="benefits-list">
+                    <div class="benefit-item">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <div class="benefit-content">
+                            <strong>1. Proteção de Marca e Reputação</strong>
+                            <p>Impede que a imagem e a credibilidade de grandes veículos de imprensa sejam usadas em fraudes e golpes virtuais.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fa-solid fa-bolt"></i>
+                        <div class="benefit-content">
+                            <strong>2. Resposta Rápida e em Tempo Real</strong>
+                            <p>Detecta e analisa conteúdos suspeitos com agilidade, cortando o alcance da desinformação antes que ela viralize.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fa-solid fa-user-shield"></i>
+                        <div class="benefit-content">
+                            <strong>3. Escudo de Segurança para a População</strong>
+                            <p>Protege idosos e pessoas com menor letramento digital contra golpes financeiros e notícias falsas perigosas.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fa-solid fa-sliders"></i>
+                        <div class="benefit-content">
+                            <strong>4. Praticidade Operacional</strong>
+                            <p>Oferece uma ferramenta simples e funcional para ser integrada diretamente à rotina de checagem dos jornalistas.</p>
+                        </div>
+                    </div>
+                    <div class="benefit-item">
+                        <i class="fa-solid fa-earth-americas"></i>
+                        <div class="benefit-content">
+                            <strong>5. Compromisso Social</strong>
+                            <p>Além disso, alinhamos nossa solução às ODS 4, 10 e 16 para gerar um impacto positivo e ético na sociedade.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <!-- ================= PÁGINA 5: ODS ================= -->
+        <div id="ods" class="pagina">
+            <!-- ODS 16 -->
+            <section class="card">
+                <h2>ODS 16: <span class="highlight">Paz, Justiça e Instituições Eficazes</span></h2>
+                <div class="ods-content">
+                    <img src="ods16.jpeg" alt="ODS 16" class="ods-img">
+                    <div>
+                        <p>Criminosos utilizam ferramentas avançadas para manipular a opinião pública e aplicar golpes digitais.</p>
+                        <p>Nossa tecnologia atua diretamente no combate ao crime cibernético, impedindo que conteúdos fraudulentos extrapolem limites e garantindo a integridade da informação legítima.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ODS 4 -->
+            <section class="card">
+                <h2>ODS 4: <span class="highlight">Educação de Qualidade</span></h2>
+                <div class="ods-content">
+                    <img src="ods4.jpeg" alt="ODS 4" class="ods-img">
+                    <div>
+                        <p>A educação vai muito além da sala de aula: ela abrange o letramento midiático e o acesso diário à verdade.</p>
+                        <p>Ao filtrar manipulações, garantimos que a sociedade permaneça bem informada e consciente diante do ecossistema digital.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- ODS 10 -->
+            <section class="card">
+                <h2>ODS 10: <span class="highlight">Redução das Desigualdades</span></h2>
+                <div class="ods-content">
+                    <img src="ods10.jpeg" alt="ODS 10" class="ods-img">
+                    <div>
+                        <p>Grandes portais e telejornais possuem um público diversificado, incluindo idosos e pessoas com menor letramento digital que são mais vulneráveis a golpes e desinformação.</p>
+                        <p>Nossa solução protege essa parcela da população, democratizando o acesso a checagens de fatos seguras e simplificadas.</p>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Encerramento -->
+            <section class="card" style="text-align: center; border-color: #00c8ff;">
+                <h2 style="border: none; padding: 0; font-size: 1.8rem; margin-bottom: 10px;">Obrigado pela <span class="highlight">visita</span>.</h2>
+                <p style="margin: 0;"><strong>Elo Tech</strong> — Conectando tecnologia, verdade e segurança.</p>
+            </section>
+        </div>
+
+    </div>
+
+    <!-- SCRIPT DE NAVEGAÇÃO DAS ABAS -->
+    <script>
+        function mudarPagina(idPagina, evento) {
+            const paginas = document.querySelectorAll('.pagina');
+            paginas.forEach(p => p.classList.remove('ativa'));
+
+            const botoes = document.querySelectorAll('.nav-btn');
+            botoes.forEach(b => b.classList.remove('ativo'));
+
+            document.getElementById(idPagina).classList.add('ativa');
+            evento.currentTarget.classList.add('ativo');
+        }
+    </script>
 
 </body>
 </html>
