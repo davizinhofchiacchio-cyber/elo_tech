@@ -17,10 +17,7 @@
       color: #e2e2e2;
       line-height: 1.6;
       min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      padding: 0 15px 60px 15px;
+      display: flex; /* Mudamos para lado a lado */
     }
 
     html {
@@ -31,76 +28,94 @@
       box-sizing: border-box;
     }
 
-    /* ======= CABEÇALHO ======= */
-    header {
-      width: 100%;
-      max-width: 800px;
+    /* ======= BARRA LATERAL FIXA (SIDEBAR) ======= */
+    .sidebar {
+      width: 280px;
+      height: 100vh;
+      background: #121212;
+      border-right: 1px solid #222;
+      position: fixed;
+      top: 0;
+      left: 0;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 40px 0 20px 0;
+      padding: 30px 20px;
       z-index: 100;
+      box-shadow: 2px 0 15px rgba(0,0,0,0.5);
     }
 
-    .logo {
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    header {
       width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-bottom: 1px solid #333;
+      padding-bottom: 25px;
+      margin-bottom: 25px;
     }
 
     .logo-img {
       width: 100%;
-      max-width: 220px;
+      max-width: 160px;
       height: auto;
       object-fit: contain;
       border-radius: 12px;
     }
 
     header h1 {
-      font-size: 2.2rem;
+      font-size: 1.8rem;
       color: #ffffff;
       letter-spacing: 2px;
       margin-top: 15px;
+      margin-bottom: 0;
+      text-align: center;
     }
 
     .highlight {
       color: #00c8ff;
     }
 
-    /* ======= MENU DE NAVEGAÇÃO ======= */
+    /* ======= MENU DE NAVEGAÇÃO LATERAL ======= */
     .nav-bar {
       display: flex;
-      justify-content: center;
-      gap: 10px;
-      margin-bottom: 25px;
-      flex-wrap: wrap;
+      flex-direction: column;
       width: 100%;
-      max-width: 800px;
+      gap: 12px;
     }
 
     .nav-btn {
-      background: #1a1a1a;
+      background: transparent;
       border: 1px solid #333;
       color: #aaaaaa;
-      padding: 12px 20px;
+      padding: 14px 20px;
       border-radius: 8px;
       font-weight: 600;
       cursor: pointer;
       transition: 0.3s;
-      font-size: 0.95rem;
+      font-size: 1rem;
       font-family: inherit;
+      text-align: left; /* Deixa o texto à esquerda igual menu de sistemas */
     }
 
     .nav-btn:hover, .nav-btn.ativo {
-      background: #00c8ff;
-      color: #0a0a0a;
+      background: rgba(0, 200, 255, 0.1);
+      color: #00c8ff;
       border-color: #00c8ff;
-      box-shadow: 0 0 15px rgba(0, 200, 255, 0.3);
+      box-shadow: 0 0 10px rgba(0, 200, 255, 0.2);
+      padding-left: 25px; /* Efeitozinho de empurrar o texto de leve ao passar o mouse */
     }
 
-    /* ======= CONTROLE DE PÁGINAS ======= */
+    /* ======= ÁREA PRINCIPAL DO CONTEÚDO ======= */
+    .main-content {
+      margin-left: 280px; /* Empurra o conteúdo pro lado do menu */
+      width: calc(100% - 280px);
+      padding: 40px 30px;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+    }
+
     .container {
       width: 100%;
       max-width: 800px;
@@ -115,6 +130,12 @@
 
     .pagina.ativa {
       display: flex;
+      animation: fadeIn 0.4s ease-in-out; /* Efeito de entrada suave */
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* ======= CARTÕES DE CONTEÚDO ======= */
@@ -142,7 +163,6 @@
       margin-bottom: 12px;
     }
 
-    /* Links Personalizados */
     .link-beta {
       color: #00c8ff;
       text-decoration: none;
@@ -257,7 +277,44 @@
       box-shadow: 0 5px 15px rgba(0,0,0,0.3);
     }
 
-    @media (max-width: 600px) {
+    /* ======= RESPONSIVIDADE (Celulares e Tablets) ======= */
+    @media (max-width: 900px) {
+      body {
+        flex-direction: column; /* Volta pro formato antigo em telas pequenas */
+      }
+      .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        border-right: none;
+        border-bottom: 1px solid #222;
+        padding: 20px;
+        box-shadow: none;
+      }
+      header {
+        border-bottom: none;
+        padding-bottom: 10px;
+        margin-bottom: 15px;
+      }
+      .nav-bar {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+      }
+      .nav-btn {
+        width: auto;
+        text-align: center;
+        padding: 10px 15px;
+      }
+      .nav-btn:hover, .nav-btn.ativo {
+        padding-left: 15px; /* Tira o efeito de empurrar no celular */
+      }
+      .main-content {
+        margin-left: 0;
+        width: 100%;
+        padding: 20px 15px;
+      }
       .ods-content {
         flex-direction: column;
         text-align: center;
@@ -267,180 +324,186 @@
 </head>
 <body>
 
-    <header>
-      <div class="logo">
-        <img src="https://raw.githubusercontent.com/davizinhofchiacchio-cyber/projeto-aletheia/main/logo.jpeg" alt="Logo Elo Tech" class="logo-img">
-      </div>
-      <h1>ELO TECH</h1>
-    </header>
+    <!-- BARRA LATERAL FIXA -->
+    <aside class="sidebar">
+        <header>
+          <div class="logo">
+            <img src="https://raw.githubusercontent.com/davizinhofchiacchio-cyber/projeto-aletheia/main/logo.jpeg" alt="Logo Elo Tech" class="logo-img">
+          </div>
+          <h1>ELO TECH</h1>
+        </header>
 
-    <!-- MENU DE BOTÕES -->
-    <div class="nav-bar">
-        <button class="nav-btn ativo" onclick="mudarPagina('inicial', event)">Início & Empresa</button>
-        <button class="nav-btn" onclick="mudarPagina('problema', event)">O Problema</button>
-        <button class="nav-btn" onclick="mudarPagina('produto', event)">Nosso Produto</button>
-        <button class="nav-btn" onclick="mudarPagina('beneficios', event)">Benefícios</button>
-        <button class="nav-btn" onclick="mudarPagina('ods', event)">Impacto (ODS)</button>
-    </div>
+        <!-- MENU DE BOTÕES -->
+        <nav class="nav-bar">
+            <button class="nav-btn ativo" onclick="mudarPagina('inicial', event)"><i class="fa-solid fa-house" style="margin-right:8px;"></i> Início & Empresa</button>
+            <button class="nav-btn" onclick="mudarPagina('problema', event)"><i class="fa-solid fa-triangle-exclamation" style="margin-right:8px;"></i> O Problema</button>
+            <button class="nav-btn" onclick="mudarPagina('produto', event)"><i class="fa-solid fa-microchip" style="margin-right:8px;"></i> Nosso Produto</button>
+            <button class="nav-btn" onclick="mudarPagina('beneficios', event)"><i class="fa-solid fa-star" style="margin-right:8px;"></i> Benefícios</button>
+            <button class="nav-btn" onclick="mudarPagina('ods', event)"><i class="fa-solid fa-earth-americas" style="margin-right:8px;"></i> Impacto (ODS)</button>
+        </nav>
+    </aside>
 
-    <div class="container">
+    <!-- ÁREA PRINCIPAL -->
+    <main class="main-content">
+        <div class="container">
 
-        <!-- ================= PÁGINA 1: INÍCIO E EMPRESA ================= -->
-        <div id="inicial" class="pagina ativa">
-            <!-- Equipe em 1º Lugar -->
-            <section class="card">
-                <h2>Nossa <span class="highlight">Equipe</span></h2>
-                <p>Conheça os integrantes responsáveis pela criação e desenvolvimento da solução:</p>
-                <div class="team-grid">
-                    <div class="team-member">
-                        <div class="team-header"><i class="fa-solid fa-user-check"></i><span class="name">David</span></div>
-                        <span class="role">Gerente</span>
-                        <p class="desc">Cuida de fazer a equipe funcionar e responde pela equipe.</p>
+            <!-- ================= PÁGINA 1: INÍCIO E EMPRESA ================= -->
+            <div id="inicial" class="pagina ativa">
+                <!-- Equipe -->
+                <section class="card">
+                    <h2>Nossa <span class="highlight">Equipe</span></h2>
+                    <p>Conheça os integrantes responsáveis pela criação e desenvolvimento da solução:</p>
+                    <div class="team-grid">
+                        <div class="team-member">
+                            <div class="team-header"><i class="fa-solid fa-user-check"></i><span class="name">David</span></div>
+                            <span class="role">Gerente</span>
+                            <p class="desc">Cuida de fazer a equipe funcionar e responde pela equipe.</p>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-header"><i class="fa-solid fa-clipboard-check"></i><span class="name">Mariah</span></div>
+                            <span class="role">Supervisora</span>
+                            <p class="desc">Supervisiona a equipe e projetos, vê se está em ordem pro gerente aprovar.</p>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-header"><i class="fa-solid fa-lightbulb"></i><span class="name">Alberto</span></div>
+                            <span class="role">Diretor Criativo</span>
+                            <p class="desc">Dá as ideias de como poderá ser o produto.</p>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-header"><i class="fa-solid fa-code"></i><span class="name">Gustavo</span></div>
+                            <span class="role">Programador</span>
+                            <p class="desc">Pega a ideia do diretor criativo e bota em prática.</p>
+                        </div>
+                        <div class="team-member">
+                            <div class="team-header"><i class="fa-solid fa-code"></i><span class="name">Caio</span></div>
+                            <span class="role">Programador</span>
+                            <p class="desc">Pega a ideia do diretor criativo e bota em prática.</p>
+                        </div>
                     </div>
-                    <div class="team-member">
-                        <div class="team-header"><i class="fa-solid fa-clipboard-check"></i><span class="name">Mariah</span></div>
-                        <span class="role">Supervisora</span>
-                        <p class="desc">Supervisiona a equipe e projetos, vê se está em ordem pro gerente aprovar.</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="team-header"><i class="fa-solid fa-lightbulb"></i><span class="name">Alberto</span></div>
-                        <span class="role">Diretor Criativo</span>
-                        <p class="desc">Dá as ideias de como poderá ser o produto.</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="team-header"><i class="fa-solid fa-code"></i><span class="name">Gustavo</span></div>
-                        <span class="role">Programador</span>
-                        <p class="desc">Pega a ideia do diretor criativo e bota em prática.</p>
-                    </div>
-                    <div class="team-member">
-                        <div class="team-header"><i class="fa-solid fa-code"></i><span class="name">Caio</span></div>
-                        <span class="role">Programador</span>
-                        <p class="desc">Pega a ideia do diretor criativo e bota em prática.</p>
-                    </div>
-                </div>
-            </section>
+                </section>
 
-            <!-- Sobre a Elo Tech em 2º Lugar -->
-            <section class="card">
-                <h2>Sobre a <span class="highlight">Elo Tech</span></h2>
-                <p>Nós somos a <strong>Elo Tech</strong>, uma empresa com o foco em tecnologia e um objetivo, facilitar sua vida como nosso slogan <em>"um caminho mais fácil pra vc"</em>, nós alcançamos isso com uso da tecnologia fazendo diversos produtos pra diferentes tipos de públicos. Nesse projeto nosso objetivo é facilitar e automatizar a verificação de informação, para evitar desinformação e outros problemas que falaremos.</p>
-                <p>Para mais informações clique em <strong>"O Problema"</strong> (no menu acima) e saiba mais.</p>
-            </section>
-        </div>
+                <!-- Sobre a Elo Tech -->
+                <section class="card">
+                    <h2>Sobre a <span class="highlight">Elo Tech</span></h2>
+                    <p>Nós somos a <strong>Elo Tech</strong>, uma empresa com o foco em tecnologia e um objetivo, facilitar sua vida como nosso slogan <em>"um caminho mais fácil pra vc"</em>, nós alcançamos isso com uso da tecnologia fazendo diversos produtos pra diferentes tipos de públicos. Nesse projeto nosso objetivo é facilitar e automatizar a verificação de informação, para evitar desinformação e outros problemas que falaremos.</p>
+                    <p>Para mais informações clique em <strong>"O Problema"</strong> (no menu ao lado) e saiba mais.</p>
+                </section>
+            </div>
 
-        <!-- ================= PÁGINA 2: O PROBLEMA ================= -->
-        <div id="problema" class="pagina">
-            <section class="card">
-                <h2>O <span class="highlight">Problema</span></h2>
-                <p>Grandes veículos de comunicação, telejornais e portais de notícia — como o <strong>SBT, CNN, Jornal Nacional</strong> entre outros — enfrentam constantemente o uso indevido de suas marcas em golpes e desinformação.</p>
-                <p>Criminosos utilizam trechos de reportagens, fotos e deepfakes para simular notícias falsas, gerando pânico na população e aplicando fraudes financeiras.</p>
-            </section>
-        </div>
+            <!-- ================= PÁGINA 2: O PROBLEMA ================= -->
+            <div id="problema" class="pagina">
+                <section class="card">
+                    <h2>O <span class="highlight">Problema</span></h2>
+                    <p>Grandes veículos de comunicação, telejornais e portais de notícia — como o <strong>SBT, CNN, Jornal Nacional</strong> entre outros — enfrentam constantemente o uso indevido de suas marcas em golpes e desinformação.</p>
+                    <p>Criminosos utilizam trechos de reportagens, fotos e deepfakes para simular notícias falsas, gerando pânico na população e aplicando fraudes financeiras.</p>
+                </section>
+            </div>
 
-        <!-- ================= PÁGINA 3: O PRODUTO ================= -->
-        <div id="produto" class="pagina">
-            <section class="card">
-                <h2>Nosso <span class="highlight">Produto: Projeto Aletheia</span></h2>
-                <p>Para combater o avanço da desinformação de forma prática e imediata, desenvolvemos o <strong>Projeto Aletheia</strong> — um ecossistema de Inteligência Artificial focado na análise, validação e checagem de conteúdos em tempo real.</p>
-                <p>O <strong>Projeto Aletheia</strong> analisa textos, manchetes e matérias suspeitas utilizando algoritmos avançados para identificar padrões de linguagem enganosa, inconsistências contextuais, sensacionalismo e indícios de manipulação ou deepfakes. Ao cruzar informações com dados confiáveis e checados, o sistema gera um diagnóstico rápido e preciso sobre a veracidade do conteúdo.</p>
-                <p>Mais do que uma ideia teórica, o Aletheia é uma solução prática pronta para atuar como um escudo digital, permitindo validar informações antes que fake news e golpes se espalhem e causem danos.</p>
+            <!-- ================= PÁGINA 3: O PRODUTO ================= -->
+            <div id="produto" class="pagina">
+                <section class="card">
+                    <h2>Nosso <span class="highlight">Produto: Projeto Aletheia</span></h2>
+                    <p>Para combater o avanço da desinformação de forma prática e imediata, desenvolvemos o <strong>Projeto Aletheia</strong> — um ecossistema de Inteligência Artificial focado na análise, validação e checagem de conteúdos em tempo real.</p>
+                    <p>O <strong>Projeto Aletheia</strong> analisa textos, manchetes e matérias suspeitas utilizando algoritmos avançados para identificar padrões de linguagem enganosa, inconsistências contextuais, sensacionalismo e indícios de manipulação ou deepfakes. Ao cruzar informações com dados confiáveis e checados, o sistema gera um diagnóstico rápido e preciso sobre a veracidade do conteúdo.</p>
+                    <p>Mais do que uma ideia teórica, o Aletheia é uma solução prática pronta para atuar como um escudo digital, permitindo validar informações antes que fake news e golpes se espalhem e causem danos.</p>
+                    
+                    <br>
+                    <p>Quer ver a BETA do Projeto Aletheia? <a href="https://davizinhofchiacchio-cyber.github.io/projeto-aletheia/" target="_blank" class="link-beta">Clique aqui e teste!</a></p>
+                </section>
+            </div>
+
+            <!-- ================= PÁGINA 4: BENEFÍCIOS ================= -->
+            <div id="beneficios" class="pagina">
+                <section class="card">
+                    <h2>Principais <span class="highlight">Benefícios</span></h2>
+                    <p>Confira as vantagens práticas que o Projeto Aletheia oferece para os veículos de comunicação e para a sociedade:</p>
+                    <div class="benefits-list">
+                        <div class="benefit-item">
+                            <i class="fa-solid fa-shield-halved"></i>
+                            <div class="benefit-content">
+                                <strong>1. Proteção de Marca e Reputação</strong>
+                                <p>Impede que a imagem e a credibilidade de grandes veículos de imprensa sejam usadas em fraudes e golpes virtuais.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fa-solid fa-bolt"></i>
+                            <div class="benefit-content">
+                                <strong>2. Resposta Rápida e em Tempo Real</strong>
+                                <p>Detecta e analisa conteúdos suspeitos com agilidade, cortando o alcance da desinformação antes que ela viralize.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fa-solid fa-user-shield"></i>
+                            <div class="benefit-content">
+                                <strong>3. Escudo de Segurança para a População</strong>
+                                <p>Protege idosos e pessoas com menor letramento digital contra golpes financeiros e notícias falsas perigosas.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fa-solid fa-sliders"></i>
+                            <div class="benefit-content">
+                                <strong>4. Praticidade Operacional</strong>
+                                <p>Oferece uma ferramenta simples e funcional para ser integrada diretamente à rotina de checagem dos jornalistas.</p>
+                            </div>
+                        </div>
+                        <div class="benefit-item">
+                            <i class="fa-solid fa-earth-americas"></i>
+                            <div class="benefit-content">
+                                <strong>5. Compromisso Social</strong>
+                                <p>Além disso, alinhamos nossa solução às ODS 4, 10 e 16 para gerar um impacto positivo e ético na sociedade.</p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </div>
+
+            <!-- ================= PÁGINA 5: ODS ================= -->
+            <div id="ods" class="pagina">
+                <!-- ODS 16 -->
+                <section class="card">
+                    <h2>ODS 16: <span class="highlight">Paz, Justiça e Instituições Eficazes</span></h2>
+                    <div class="ods-content">
+                        <img src="ods16.jpeg" alt="ODS 16" class="ods-img">
+                        <div>
+                            <p>Criminosos utilizam ferramentas avançadas para manipular a opinião pública e aplicar golpes digitais.</p>
+                            <p>Nossa tecnologia atua diretamente no combate ao crime cibernético, impedindo que conteúdos fraudulentos extrapolem limites e garantindo a integridade da informação legítima.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ODS 4 -->
+                <section class="card">
+                    <h2>ODS 4: <span class="highlight">Educação de Qualidade</span></h2>
+                    <div class="ods-content">
+                        <img src="ods4.jpeg" alt="ODS 4" class="ods-img">
+                        <div>
+                            <p>A educação vai muito além da sala de aula: ela abrange o letramento midiático e o acesso diário à verdade.</p>
+                            <p>Ao filtrar manipulações, garantimos que a sociedade permaneça bem informada e consciente diante do ecossistema digital.</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- ODS 10 -->
+                <section class="card">
+                    <h2>ODS 10: <span class="highlight">Redução das Desigualdades</span></h2>
+                    <div class="ods-content">
+                        <img src="ods10.jpeg" alt="ODS 10" class="ods-img">
+                        <div>
+                            <p>Grandes portais e telejornais possuem um público diversificado, incluindo idosos e pessoas com menor letramento digital que são mais vulneráveis a golpes e desinformação.</p>
+                            <p>Nossa solução protege essa parcela da população, democratizando o acesso a checagens de fatos seguras e simplificadas.</p>
+                        </div>
+                    </div>
+                </section>
                 
-                <br>
-                <p>Quer ver a BETA do Projeto Aletheia? <a href="https://davizinhofchiacchio-cyber.github.io/projeto-aletheia/" target="_blank" class="link-beta">Clique aqui e teste!</a></p>
-            </section>
+                <!-- Encerramento -->
+                <section class="card" style="text-align: center; border-color: #00c8ff;">
+                    <h2 style="border: none; padding: 0; font-size: 1.8rem; margin-bottom: 10px;">Obrigado pela <span class="highlight">visita</span>.</h2>
+                    <p style="margin: 0;"><strong>Elo Tech</strong> — Conectando tecnologia, verdade e segurança.</p>
+                </section>
+            </div>
+
         </div>
-
-        <!-- ================= PÁGINA 4: BENEFÍCIOS ================= -->
-        <div id="beneficios" class="pagina">
-            <section class="card">
-                <h2>Principais <span class="highlight">Benefícios</span></h2>
-                <p>Confira as vantagens práticas que o Projeto Aletheia oferece para os veículos de comunicação e para a sociedade:</p>
-                <div class="benefits-list">
-                    <div class="benefit-item">
-                        <i class="fa-solid fa-shield-halved"></i>
-                        <div class="benefit-content">
-                            <strong>1. Proteção de Marca e Reputação</strong>
-                            <p>Impede que a imagem e a credibilidade de grandes veículos de imprensa sejam usadas em fraudes e golpes virtuais.</p>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fa-solid fa-bolt"></i>
-                        <div class="benefit-content">
-                            <strong>2. Resposta Rápida e em Tempo Real</strong>
-                            <p>Detecta e analisa conteúdos suspeitos com agilidade, cortando o alcance da desinformação antes que ela viralize.</p>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fa-solid fa-user-shield"></i>
-                        <div class="benefit-content">
-                            <strong>3. Escudo de Segurança para a População</strong>
-                            <p>Protege idosos e pessoas com menor letramento digital contra golpes financeiros e notícias falsas perigosas.</p>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fa-solid fa-sliders"></i>
-                        <div class="benefit-content">
-                            <strong>4. Praticidade Operacional</strong>
-                            <p>Oferece uma ferramenta simples e funcional para ser integrada diretamente à rotina de checagem dos jornalistas.</p>
-                        </div>
-                    </div>
-                    <div class="benefit-item">
-                        <i class="fa-solid fa-earth-americas"></i>
-                        <div class="benefit-content">
-                            <strong>5. Compromisso Social</strong>
-                            <p>Além disso, alinhamos nossa solução às ODS 4, 10 e 16 para gerar um impacto positivo e ético na sociedade.</p>
-                        </div>
-                    </div>
-                </div>
-            </section>
-        </div>
-
-        <!-- ================= PÁGINA 5: ODS ================= -->
-        <div id="ods" class="pagina">
-            <!-- ODS 16 -->
-            <section class="card">
-                <h2>ODS 16: <span class="highlight">Paz, Justiça e Instituições Eficazes</span></h2>
-                <div class="ods-content">
-                    <img src="ods16.jpeg" alt="ODS 16" class="ods-img">
-                    <div>
-                        <p>Criminosos utilizam ferramentas avançadas para manipular a opinião pública e aplicar golpes digitais.</p>
-                        <p>Nossa tecnologia atua diretamente no combate ao crime cibernético, impedindo que conteúdos fraudulentos extrapolem limites e garantindo a integridade da informação legítima.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ODS 4 -->
-            <section class="card">
-                <h2>ODS 4: <span class="highlight">Educação de Qualidade</span></h2>
-                <div class="ods-content">
-                    <img src="ods4.jpeg" alt="ODS 4" class="ods-img">
-                    <div>
-                        <p>A educação vai muito além da sala de aula: ela abrange o letramento midiático e o acesso diário à verdade.</p>
-                        <p>Ao filtrar manipulações, garantimos que a sociedade permaneça bem informada e consciente diante do ecossistema digital.</p>
-                    </div>
-                </div>
-            </section>
-
-            <!-- ODS 10 -->
-            <section class="card">
-                <h2>ODS 10: <span class="highlight">Redução das Desigualdades</span></h2>
-                <div class="ods-content">
-                    <img src="ods10.jpeg" alt="ODS 10" class="ods-img">
-                    <div>
-                        <p>Grandes portais e telejornais possuem um público diversificado, incluindo idosos e pessoas com menor letramento digital que são mais vulneráveis a golpes e desinformação.</p>
-                        <p>Nossa solução protege essa parcela da população, democratizando o acesso a checagens de fatos seguras e simplificadas.</p>
-                    </div>
-                </div>
-            </section>
-            
-            <!-- Encerramento -->
-            <section class="card" style="text-align: center; border-color: #00c8ff;">
-                <h2 style="border: none; padding: 0; font-size: 1.8rem; margin-bottom: 10px;">Obrigado pela <span class="highlight">visita</span>.</h2>
-                <p style="margin: 0;"><strong>Elo Tech</strong> — Conectando tecnologia, verdade e segurança.</p>
-            </section>
-        </div>
-
-    </div>
+    </main>
 
     <!-- SCRIPT DE NAVEGAÇÃO DAS ABAS -->
     <script>
@@ -453,8 +516,8 @@
 
             document.getElementById(idPagina).classList.add('ativa');
             evento.currentTarget.classList.add('ativo');
+            
+            // Faz o scroll voltar suavemente para o topo ao trocar de aba (opcional)
+            window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-    </script>
-
-</body>
-</html>
+    <
