@@ -17,7 +17,7 @@
       color: #e2e2e2;
       line-height: 1.6;
       min-height: 100vh;
-      display: flex; /* Mudamos para lado a lado */
+      display: flex;
     }
 
     html {
@@ -95,7 +95,7 @@
       transition: 0.3s;
       font-size: 1rem;
       font-family: inherit;
-      text-align: left; /* Deixa o texto à esquerda igual menu de sistemas */
+      text-align: left;
     }
 
     .nav-btn:hover, .nav-btn.ativo {
@@ -103,12 +103,12 @@
       color: #00c8ff;
       border-color: #00c8ff;
       box-shadow: 0 0 10px rgba(0, 200, 255, 0.2);
-      padding-left: 25px; /* Efeitozinho de empurrar o texto de leve ao passar o mouse */
+      padding-left: 25px;
     }
 
     /* ======= ÁREA PRINCIPAL DO CONTEÚDO ======= */
     .main-content {
-      margin-left: 280px; /* Empurra o conteúdo pro lado do menu */
+      margin-left: 280px;
       width: calc(100% - 280px);
       padding: 40px 30px;
       display: flex;
@@ -130,7 +130,7 @@
 
     .pagina.ativa {
       display: flex;
-      animation: fadeIn 0.4s ease-in-out; /* Efeito de entrada suave */
+      animation: fadeIn 0.4s ease-in-out;
     }
 
     @keyframes fadeIn {
@@ -280,7 +280,7 @@
     /* ======= RESPONSIVIDADE (Celulares e Tablets) ======= */
     @media (max-width: 900px) {
       body {
-        flex-direction: column; /* Volta pro formato antigo em telas pequenas */
+        flex-direction: column;
       }
       .sidebar {
         width: 100%;
@@ -308,7 +308,7 @@
         padding: 10px 15px;
       }
       .nav-btn:hover, .nav-btn.ativo {
-        padding-left: 15px; /* Tira o efeito de empurrar no celular */
+        padding-left: 15px;
       }
       .main-content {
         margin-left: 0;
@@ -333,13 +333,13 @@
           <h1>ELO TECH</h1>
         </header>
 
-        <!-- MENU DE BOTÕES -->
+        <!-- MENU DE BOTÕES (Corrigido para "this") -->
         <nav class="nav-bar">
-            <button class="nav-btn ativo" onclick="mudarPagina('inicial', event)"><i class="fa-solid fa-house" style="margin-right:8px;"></i> Início & Empresa</button>
-            <button class="nav-btn" onclick="mudarPagina('problema', event)"><i class="fa-solid fa-triangle-exclamation" style="margin-right:8px;"></i> O Problema</button>
-            <button class="nav-btn" onclick="mudarPagina('produto', event)"><i class="fa-solid fa-microchip" style="margin-right:8px;"></i> Nosso Produto</button>
-            <button class="nav-btn" onclick="mudarPagina('beneficios', event)"><i class="fa-solid fa-star" style="margin-right:8px;"></i> Benefícios</button>
-            <button class="nav-btn" onclick="mudarPagina('ods', event)"><i class="fa-solid fa-earth-americas" style="margin-right:8px;"></i> Impacto (ODS)</button>
+            <button class="nav-btn ativo" onclick="mudarPagina('inicial', this)"><i class="fa-solid fa-house" style="margin-right:8px;"></i> Início & Empresa</button>
+            <button class="nav-btn" onclick="mudarPagina('problema', this)"><i class="fa-solid fa-triangle-exclamation" style="margin-right:8px;"></i> O Problema</button>
+            <button class="nav-btn" onclick="mudarPagina('produto', this)"><i class="fa-solid fa-microchip" style="margin-right:8px;"></i> Nosso Produto</button>
+            <button class="nav-btn" onclick="mudarPagina('beneficios', this)"><i class="fa-solid fa-star" style="margin-right:8px;"></i> Benefícios</button>
+            <button class="nav-btn" onclick="mudarPagina('ods', this)"><i class="fa-solid fa-earth-americas" style="margin-right:8px;"></i> Impacto (ODS)</button>
         </nav>
     </aside>
 
@@ -349,7 +349,6 @@
 
             <!-- ================= PÁGINA 1: INÍCIO E EMPRESA ================= -->
             <div id="inicial" class="pagina ativa">
-                <!-- Equipe -->
                 <section class="card">
                     <h2>Nossa <span class="highlight">Equipe</span></h2>
                     <p>Conheça os integrantes responsáveis pela criação e desenvolvimento da solução:</p>
@@ -382,7 +381,6 @@
                     </div>
                 </section>
 
-                <!-- Sobre a Elo Tech -->
                 <section class="card">
                     <h2>Sobre a <span class="highlight">Elo Tech</span></h2>
                     <p>Nós somos a <strong>Elo Tech</strong>, uma empresa com o foco em tecnologia e um objetivo, facilitar sua vida como nosso slogan <em>"um caminho mais fácil pra vc"</em>, nós alcançamos isso com uso da tecnologia fazendo diversos produtos pra diferentes tipos de públicos. Nesse projeto nosso objetivo é facilitar e automatizar a verificação de informação, para evitar desinformação e outros problemas que falaremos.</p>
@@ -505,19 +503,25 @@
         </div>
     </main>
 
-    <!-- SCRIPT DE NAVEGAÇÃO DAS ABAS -->
+    <!-- SCRIPT DE NAVEGAÇÃO DAS ABAS (Corrigido) -->
     <script>
-        function mudarPagina(idPagina, evento) {
+        function mudarPagina(idPagina, botaoClicado) {
+            // Esconde todas as páginas
             const paginas = document.querySelectorAll('.pagina');
             paginas.forEach(p => p.classList.remove('ativa'));
 
+            // Remove a cor azul de todos os botões
             const botoes = document.querySelectorAll('.nav-btn');
             botoes.forEach(b => b.classList.remove('ativo'));
 
+            // Mostra a página certa e colore o botão clicado
             document.getElementById(idPagina).classList.add('ativa');
-            evento.currentTarget.classList.add('ativo');
+            botaoClicado.classList.add('ativo');
             
-            // Faz o scroll voltar suavemente para o topo ao trocar de aba (opcional)
+            // Faz o scroll voltar suavemente para o topo
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
-    <
+    </script>
+
+</body>
+</html>
